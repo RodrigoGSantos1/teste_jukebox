@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:teste_jukebox/components/backclick.dart';
+import 'package:teste_jukebox/components/dialog.dart';
+import 'package:teste_jukebox/pages/usuarios.dart';
 
 class Login extends StatelessWidget {
   @override
@@ -50,7 +52,7 @@ class Login extends StatelessWidget {
                     border: UnderlineInputBorder(
                         borderSide: new BorderSide(color: Colors.teal)),
                     focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
+                      borderSide: BorderSide(color: Colors.blue),
                     ),
                     labelText: 'E-mail',
                     labelStyle: TextStyle(color: Colors.black, fontSize: 12)),
@@ -67,13 +69,32 @@ class Login extends StatelessWidget {
                     border: UnderlineInputBorder(
                         borderSide: new BorderSide(color: Colors.teal)),
                     focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
+                      borderSide: BorderSide(color: Colors.blue),
                     ),
                     labelText: 'Senha',
                     labelStyle: TextStyle(color: Colors.black, fontSize: 12)),
               ),
             ),
-            Dialog(),
+            Padding(
+                padding: EdgeInsets.only(left: 15, right: 15, top: 20, bottom: 20),
+                child: FlatButton(
+                  onPressed: () {
+                    Navigator.push(context, new MaterialPageRoute(
+                      builder: (BuildContext context) => FullScreenDialog(),
+                      fullscreenDialog: true,
+                    ));
+                  },
+                  child: Text(
+                    "Esqueci minha senha",
+                    style: GoogleFonts.roboto(
+                      textStyle: TextStyle(
+                          color: Colors.blueAccent,
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ),
+                )),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
@@ -82,7 +103,10 @@ class Login extends StatelessWidget {
               ),
               child: MaterialButton(
                 minWidth: media.width,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ListaUsuarios()));
+                },
                 child: Text(
                   "Logar",
                   style: GoogleFonts.roboto(

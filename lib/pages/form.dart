@@ -52,7 +52,7 @@ class Formulario extends StatelessWidget {
                     border: UnderlineInputBorder(
                         borderSide: new BorderSide(color: Colors.teal)),
                     focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
+                      borderSide: BorderSide(color: Colors.blue),
                     ),
                     labelText: 'Nome',
                     labelStyle: TextStyle(color: Colors.black, fontSize: 12)),
@@ -69,7 +69,7 @@ class Formulario extends StatelessWidget {
                     border: UnderlineInputBorder(
                         borderSide: new BorderSide(color: Colors.teal)),
                     focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
+                      borderSide: BorderSide(color: Colors.blue),
                     ),
                     labelText: 'Email',
                     labelStyle: TextStyle(color: Colors.black, fontSize: 12)),
@@ -87,7 +87,7 @@ class Formulario extends StatelessWidget {
                     border: UnderlineInputBorder(
                         borderSide: new BorderSide(color: Colors.teal)),
                     focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
+                      borderSide: BorderSide(color: Colors.blue),
                     ),
                     labelText: 'Data Nacimento',
                     labelStyle: TextStyle(color: Colors.black, fontSize: 12)),
@@ -96,7 +96,6 @@ class Formulario extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 50),
               child: TextField(
-                inputFormatters: [MaskTextInputFormatter(mask: "##/##/####")],
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                     enabledBorder: UnderlineInputBorder(
@@ -105,7 +104,7 @@ class Formulario extends StatelessWidget {
                     border: UnderlineInputBorder(
                         borderSide: new BorderSide(color: Colors.teal)),
                     focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
+                      borderSide: BorderSide(color: Colors.blue),
                     ),
                     labelText: 'Senha',
                     labelStyle: TextStyle(color: Colors.black, fontSize: 12)),
