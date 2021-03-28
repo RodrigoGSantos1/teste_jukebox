@@ -2,19 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:teste_jukebox/components/backclick.dart';
+import 'Login.dart';
 
 class Formulario extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final media = MediaQuery.of(context).size;
     Color primaryCollor = Color(0xFF161616);
 
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Stack(
-              alignment: Alignment.center,
+              alignment: Alignment.topCenter,
               children: [
                 Backclick(),
                 Padding(
@@ -28,7 +31,7 @@ class Formulario extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 10, right: 10, top: 20),
               child: Text(
-                "Insira os Dados A seguir: ",
+                "Cadastrar",
                 style: GoogleFonts.lato(
                   textStyle: TextStyle(
                     color: primaryCollor,
@@ -39,16 +42,16 @@ class Formulario extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 30, left: 30, right: 30),
+              padding: EdgeInsets.only(top: 30, left: 10, right: 10),
               child: TextField(
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.name,
                 decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black),
                     ),
-                    border: OutlineInputBorder(
+                    border: UnderlineInputBorder(
                         borderSide: new BorderSide(color: Colors.teal)),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black),
                     ),
                     labelText: 'Nome',
@@ -56,93 +59,86 @@ class Formulario extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(
-                top: 30,
-                left: 30,
-                right: 30,
-              ),
+              padding: EdgeInsets.only(top: 20, left: 10, right: 10),
               child: TextField(
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black),
                     ),
-                    border: OutlineInputBorder(
+                    border: UnderlineInputBorder(
                         borderSide: new BorderSide(color: Colors.teal)),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black),
                     ),
-                    labelText: 'E-mail',
+                    labelText: 'Email',
                     labelStyle: TextStyle(color: Colors.black, fontSize: 12)),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 20, left: 30, right: 30),
+              padding: EdgeInsets.only(top: 20, left: 10, right: 10),
               child: TextField(
                 inputFormatters: [MaskTextInputFormatter(mask: "##/##/####")],
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.datetime,
                 decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black),
                     ),
-                    border: OutlineInputBorder(
+                    border: UnderlineInputBorder(
                         borderSide: new BorderSide(color: Colors.teal)),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black),
                     ),
-                    labelText: 'Data de Nascimento',
+                    labelText: 'Data Nacimento',
                     labelStyle: TextStyle(color: Colors.black, fontSize: 12)),
               ),
             ),
-            const SizedBox(height: 15.0),
-            Container(
-              alignment: Alignment.center,
-              child: Padding(
-                  padding: EdgeInsets.only(top: 10),
-                  child: FlatButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Esqueci minha senha?",
-                      style: GoogleFonts.lato(
-                        textStyle: TextStyle(
-                          color: primaryCollor,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  )),
-            ),
             Padding(
-              padding: EdgeInsets.only(top: 10, left: 10, right: 10),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                  color: primaryCollor,
-                ),
-                child: MaterialButton(
-                  padding: EdgeInsets.only(
-                      left: 145, right: 145, top: 12, bottom: 10),
-                  onPressed: () {},
-                  child: Text(
-                    "Logar",
-                    style: GoogleFonts.roboto(
-                      color: Colors.white,
-                      fontSize: 20,
+              padding: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 50),
+              child: TextField(
+                inputFormatters: [MaskTextInputFormatter(mask: "##/##/####")],
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
                     ),
+                    border: UnderlineInputBorder(
+                        borderSide: new BorderSide(color: Colors.teal)),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
+                    labelText: 'Senha',
+                    labelStyle: TextStyle(color: Colors.black, fontSize: 12)),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color: primaryCollor,
+              ),
+              child: MaterialButton(
+                minWidth: media.width,
+                onPressed: () {},
+                child: Text(
+                  "Cadastrar",
+                  style: GoogleFonts.roboto(
+                    color: Colors.white,
+                    fontSize: 20,
                   ),
                 ),
               ),
             ),
             Padding(
-                padding: EdgeInsets.only(top: 20, left: 60),
+                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                 child: Container(
                   alignment: Alignment.center,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        padding: EdgeInsets.only(
-                            left: 60, bottom: 0.5, right: 60, top: 0.5),
+                        width: media.width / 3,
+                        height: 1,
                         color: Colors.grey,
                       ),
                       Padding(
@@ -154,39 +150,37 @@ class Formulario extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.only(
-                          left: 60,
-                          bottom: 0.5,
-                          right: 60,
-                          top: 0.5,
-                        ),
+                        width: media.width / 3,
+                        height: 1,
                         color: Colors.grey,
                       )
                     ],
                   ),
                 )),
             Padding(
-                padding:
-                    EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 20),
-                child: OutlineButton(
-                    onLongPress: () => () {},
-                    borderSide: BorderSide(color: primaryCollor),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    child: MaterialButton(
-                      padding: EdgeInsets.only(
-                          left: 110, right: 110, top: 12, bottom: 12),
-                      onPressed: () {},
-                      child: Text(
-                        "Cadastrar",
-                        style: GoogleFonts.roboto(
-                          color: primaryCollor,
-                          fontSize: 20,
+                padding: const EdgeInsets.only(
+                  bottom: 50,
+                  left: 10,
+                  right: 10,
+                ),
+                child:OutlineButton(
+                      onLongPress: () => () {},
+                      borderSide: BorderSide(color: primaryCollor),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 11),
+                        child: Text(
+                          "Logar",
+                          style: GoogleFonts.roboto(
+                            color: primaryCollor,
+                            fontSize: 20,
+                          ),
                         ),
                       ),
-                    ),
-                    onPressed: () {})),
+                      onPressed: () {}),
+                ),
           ],
         ),
       )),

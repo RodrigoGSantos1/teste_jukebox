@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:teste_jukebox/components/backclick.dart';
-import 'package:teste_jukebox/pages/home.dart';
 
 class Login extends StatelessWidget {
   @override
@@ -13,6 +12,7 @@ class Login extends StatelessWidget {
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Stack(
               alignment: Alignment.topCenter,
@@ -73,24 +73,7 @@ class Login extends StatelessWidget {
                     labelStyle: TextStyle(color: Colors.black, fontSize: 12)),
               ),
             ),
-            Container(
-              alignment: Alignment.center,
-              child: Padding(
-                  padding: EdgeInsets.only(top: 10),
-                  child: FlatButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Esqueci minha senha?",
-                      style: GoogleFonts.lato(
-                        textStyle: TextStyle(
-                          color: primaryCollor,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  )),
-            ),
+            Dialog(),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
@@ -101,7 +84,7 @@ class Login extends StatelessWidget {
                 minWidth: media.width,
                 onPressed: () {},
                 child: Text(
-                  "Cadastrar",
+                  "Logar",
                   style: GoogleFonts.roboto(
                     color: Colors.white,
                     fontSize: 20,
@@ -110,7 +93,7 @@ class Login extends StatelessWidget {
               ),
             ),
             Padding(
-                padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                 child: Container(
                   alignment: Alignment.center,
                   child: Row(
@@ -139,36 +122,27 @@ class Login extends StatelessWidget {
                 )),
             Padding(
               padding: const EdgeInsets.only(
-                bottom: 90,
+                bottom: 50,
                 left: 10,
                 right: 10,
               ),
-              child: OutlineButton(
+              child:OutlineButton(
                   onLongPress: () => () {},
                   borderSide: BorderSide(color: primaryCollor),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
-                  child: MaterialButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Login()));
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 90),
-                      child: Text(
-                        "Logar",
-                        style: GoogleFonts.roboto(
-                          color: primaryCollor,
-                          fontSize: 20,
-                        ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 11),
+                    child: Text(
+                      "Cadastrar",
+                      style: GoogleFonts.roboto(
+                        color: primaryCollor,
+                        fontSize: 20,
                       ),
                     ),
                   ),
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Login()));
-                  }),
+                  onPressed: () {}),
             ),
           ],
         ),
